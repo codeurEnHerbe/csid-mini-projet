@@ -3,7 +3,8 @@ package Entreprise;
 public class EmployeeMapper {
 
     public static EmployeeDTO EmployeeToDTO(Employee e){
-        return new EmployeeDTO(e.getId(),e.getName());
+        return new EmployeeDTO(e.getId(),e.getName(), e.getAddress().getNumber(), e.getAddress().getStreetName(),
+                e.getAddress().getZipCode(), e.getAddress().getCity(), e.getAddress().getCountry());
     }
 
     public static Employee DTOToEmployee(EmployeeDTO e){

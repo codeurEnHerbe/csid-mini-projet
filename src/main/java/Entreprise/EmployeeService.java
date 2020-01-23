@@ -14,16 +14,18 @@ public class EmployeeService {
     }
 
     public List<Employee> getEmployees(){
-        return empRep.findAll().stream().map( e -> EmployeeMapper.EntityToEmployee(e)).collect(Collectors.toList());
+        return empRep.findAll().stream()
+                .map(e -> EmployeeMapper.EntityToEmployee(e))
+                .collect(Collectors.toList());
     }
 
     public boolean put(Employee e){
         if(empRep.findAll().stream().filter(employee -> employee.getId() == e.getId()).findFirst().isPresent()){
-            return false;
+            return true;
         }else{
             empRep.save(EmployeeMapper.EmployeeToEntity(e));
             System.out.println(e);
-            return true;
+            return false;
         }
     }
 

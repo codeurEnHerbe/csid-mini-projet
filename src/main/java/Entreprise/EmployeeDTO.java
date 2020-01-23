@@ -30,9 +30,14 @@ public class EmployeeDTO {
         this.id=-1;
     }
 
-    public EmployeeDTO(int id, String name){
+    public EmployeeDTO(int id, String name, String streetNumber, String streetName, String postalCode,String city, String country){
         this.id=id;
         this.name=name;
+        this.streetNumber=streetNumber;
+        this.streetName=streetName;
+        this.postalCode=postalCode;
+        this.city=city;
+        this.country=country;
     }
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
