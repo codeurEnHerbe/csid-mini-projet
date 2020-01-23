@@ -1,2 +1,5 @@
 # csid-mini-projet
-Mini projet CSID
+
+AURIAC Rafael 
+TIQUET-DURIEZ Rodolphe
+
