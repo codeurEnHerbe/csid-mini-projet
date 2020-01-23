@@ -15,6 +15,7 @@ public class EmployeeEntity {
     private String zipCode;
     private String city;
     private String country;
+    private long salary;
 
     public EmployeeEntity(){
         this.id=-1;
@@ -56,6 +57,14 @@ public class EmployeeEntity {
 
     public String getStreetName() {
         return streetName;
+    }
+
+    public long getSalary() {
+        return salary;
+    }
+
+    public void setSalary(long salary) {
+        this.salary = salary;
     }
 
     public void setStreetName(String streetName) {
