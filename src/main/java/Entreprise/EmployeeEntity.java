@@ -11,43 +11,92 @@ public class EmployeeEntity {
     @Id
     private int id;
     private String name;
-    private String address;
+    private String streetNumber;
+    private String streetName;
+    private String zipCode;
+    private String city;
+    private String country;
 
     public EmployeeEntity(){
         this.id=-1;
     }
 
-    public EmployeeEntity(int id, String name, String address){
+    public EmployeeEntity(int id, String name, String streetNumber, String streetName, String zipCode, String city, String country){
         this.id=id;
         this.name=name;
-        this.address=address;
+        this.streetNumber = streetNumber;
+        this.streetName = streetName;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.country = country;
     }
 
-    public int getId(){
-        return this.id;
+    public int getId() {
+        return id;
     }
 
-    public String getName(){
-        return this.name;
-    }
-
-    public String getAddress(){
-        return this.address;
-    }
-
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setName(String name){
-        this.name=name;
+    public String getName() {
+        return name;
     }
 
-    public void setAddress(String address){
-        this.address=address;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String toString(){
-        return "{id="+id+", name="+name+", address="+address+"}";
+    public String getStreetNumber() {
+        return streetNumber;
+    }
+
+    public void setStreetNumber(String streetNumber) {
+        this.streetNumber = streetNumber;
+    }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", streetNumber='" + streetNumber + '\'' +
+                ", streetName='" + streetName + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

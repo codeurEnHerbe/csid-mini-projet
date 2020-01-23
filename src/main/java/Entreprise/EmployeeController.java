@@ -77,8 +77,8 @@ public class EmployeeController {
             if(em.getName() != null)
                 emp.setName(em.getName());
 
-            if(em.getAddress() != null)
-                emp.setAddress(em.getAddress());
+            if(em.adressLine1() != null && em.adressLine2() != null)
+                emp.setAddress(new Adress(em.getStreetNumber(), em.getStreetName(), em.getPostalCode(), em.getCity(), em.getCountry()));
 
             employeeService.update(emp);
         }

@@ -11,7 +11,6 @@ public class EmployeeService {
 
     public EmployeeService(EmployeeRepository empRep){
         this.empRep = empRep;
-        put(new Employee(2, "toto", "5 rue de titi"));
     }
 
     public List<Employee> getEmployees(){
