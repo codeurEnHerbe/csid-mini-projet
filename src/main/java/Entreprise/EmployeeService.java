@@ -44,11 +44,15 @@ public class EmployeeService {
 
     public boolean delete(int id){
 
-        if(getEmployees().stream().filter(employee -> employee.getId() == id ).findFirst() == null){
+        if(getEmployees().stream().filter(employee -> employee.getId() == id ).findFirst().isPresent()){
             empRep.deleteById(id);
             return true;
         }
 
         return false;
+    }
+
+    public Employee getOne(int id){
+        return  EmployeeMapper.EntityToEmployee(empRep.getOne(id));
     }
 }

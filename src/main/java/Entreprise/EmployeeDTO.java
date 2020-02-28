@@ -11,7 +11,7 @@ public class EmployeeDTO {
     private int id;
     private String name;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // <-- Pour avoir un affichage différent
     private String streetNumber;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -26,11 +26,13 @@ public class EmployeeDTO {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String country;
 
+    private double salary;
+
     public EmployeeDTO(){
         this.id=-1;
     }
 
-    public EmployeeDTO(int id, String name, String streetNumber, String streetName, String postalCode,String city, String country){
+    public EmployeeDTO(int id, String name, String streetNumber, String streetName, String postalCode,String city, String country, double salary){
         this.id=id;
         this.name=name;
         this.streetNumber=streetNumber;
@@ -38,6 +40,7 @@ public class EmployeeDTO {
         this.postalCode=postalCode;
         this.city=city;
         this.country=country;
+        this.salary = salary;
     }
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
@@ -99,6 +102,14 @@ public class EmployeeDTO {
         this.city = city;
     }
 
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
     public String getCountry() {
         return country;
     }
@@ -107,7 +118,17 @@ public class EmployeeDTO {
         this.country = country;
     }
 
-    public String toString(){
-        return "{id="+id+", name="+name+", address=" + adressLine1() + " " + adressLine2() + "}";
+    @Override
+    public String toString() {
+        return "EmployeeDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", streetNumber='" + streetNumber + '\'' +
+                ", streetName='" + streetName + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", salary=" + salary +
+                '}';
     }
 }

@@ -15,13 +15,13 @@ public class EmployeeEntity {
     private String zipCode;
     private String city;
     private String country;
-    private long salary;
+    private double salary;
 
     public EmployeeEntity(){
         this.id=-1;
     }
 
-    public EmployeeEntity(int id, String name, String streetNumber, String streetName, String zipCode, String city, String country){
+    public EmployeeEntity(int id, String name, String streetNumber, String streetName, String zipCode, String city, String country, double salary){
         this.id=id;
         this.name=name;
         this.streetNumber = streetNumber;
@@ -29,6 +29,7 @@ public class EmployeeEntity {
         this.zipCode = zipCode;
         this.city = city;
         this.country = country;
+        this.salary = salary;
     }
 
     public int getId() {
@@ -59,11 +60,11 @@ public class EmployeeEntity {
         return streetName;
     }
 
-    public long getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(long salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
@@ -105,6 +106,7 @@ public class EmployeeEntity {
                 ", zipCode='" + zipCode + '\'' +
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +
+                ", salary=" + salary +
                 '}';
     }
 }

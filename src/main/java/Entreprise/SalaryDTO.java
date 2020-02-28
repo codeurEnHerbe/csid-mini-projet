@@ -1,28 +1,39 @@
 package Entreprise;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
 
-public class Salary {
+public class SalaryDTO {
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private int employeeId;
-    private double amount;
-    private LocalDate paymentDate;
-    private double workDayNumber;
-    private String salaryMonth;
-    private double salary;
-    private Employee employee;
 
-    public Salary(int employeeId, LocalDate paymentDate, double workDayNumber, String salaryMonth){
-        this.employeeId = employeeId;
-        this.amount = 0;
-        this.paymentDate = paymentDate;
-        this.workDayNumber = workDayNumber;
-        this.salaryMonth = salaryMonth;
+    private double amount;
+
+    private String salaryMonth;
+
+    private LocalDate paymentDate;
+
+    private double workDayNumber;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private EmployeeDTO employee;
+
+    public SalaryDTO(){
+
     }
 
-    public Salary(Employee employee, LocalDate paymentDate, double workDayNumber, String salaryMonth, double amount){
+    public SalaryDTO(EmployeeDTO employee, double amount, String salaryMonth, LocalDate paymentDate, double workDayNumber){
         this.employee = employee;
         this.amount = amount;
+        this.paymentDate = paymentDate;
+        this.salaryMonth = salaryMonth;
+        this.workDayNumber = workDayNumber;
+    }
+
+    public SalaryDTO(int employeeId, String salaryMonth, LocalDate paymentDate, double workDayNumber){
+        this.employeeId = employeeId;
         this.paymentDate = paymentDate;
         this.workDayNumber = workDayNumber;
         this.salaryMonth = salaryMonth;
@@ -44,6 +55,14 @@ public class Salary {
         this.amount = amount;
     }
 
+    public String getSalaryMonth() {
+        return salaryMonth;
+    }
+
+    public void setSalaryMonth(String salaryMonth) {
+        this.salaryMonth = salaryMonth;
+    }
+
     public LocalDate getPaymentDate() {
         return paymentDate;
     }
@@ -60,35 +79,20 @@ public class Salary {
         this.workDayNumber = workDayNumber;
     }
 
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public String getSalaryMonth() {
-        return salaryMonth;
-    }
-
-    public void setSalaryMonth(String salaryMonth) {
-        this.salaryMonth = salaryMonth;
-    }
-
-    public Employee getEmployee() {
+    public EmployeeDTO getEmployee() {
         return employee;
     }
 
-    public void setEmployee(Employee employee) {
+    public void setEmployee(EmployeeDTO employee) {
         this.employee = employee;
     }
 
     @Override
     public String toString() {
-        return "Salary{" +
+        return "SalaryDTO{" +
                 "employeeId=" + employeeId +
                 ", amount=" + amount +
+                ", salaryMonth='" + salaryMonth + '\'' +
                 ", paymentDate=" + paymentDate +
                 ", workDayNumber=" + workDayNumber +
                 '}';
