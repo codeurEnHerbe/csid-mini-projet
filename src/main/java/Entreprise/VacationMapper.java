@@ -16,7 +16,7 @@ public class VacationMapper {
 
     public static Vacation entityToVacation(VacationEntity savedVacation) {
         Employee e = new Employee();
-        e.setId(savedVacation.getId());
+        e.setId(savedVacation.getEmployee().getId());
         return new Vacation(e, savedVacation.getDateDebut(), savedVacation.getDateEnd());
     }
 
