@@ -23,6 +23,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users/**").permitAll()
                 .antMatchers("/employee/**").permitAll()
                 .antMatchers("/sign-up/**").permitAll()
+                .antMatchers("/vacation/**").permitAll()
                 .antMatchers("/salaries/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
