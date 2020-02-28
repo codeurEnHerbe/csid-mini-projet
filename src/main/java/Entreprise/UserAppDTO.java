@@ -5,9 +5,11 @@ public class UserAppDTO {
     private int id;
     private String username;
     private String password;
+    private int idEmployee;
 
     public UserAppDTO(){
         this.id=-1;
+
     }
 
     public UserAppDTO(int id, String username, String password){
@@ -44,4 +46,11 @@ public class UserAppDTO {
         return "{id="+id+", username="+username+", password="+password+"}";
     }
 
+    public int getIdEmployee() {
+        return idEmployee;
+    }
+
+    public void setIdEmployee(int idEmployee) {
+        this.idEmployee = idEmployee;
+    }
 }

@@ -8,14 +8,17 @@ public class UserApp {
     private String username;
     private String password;
 
+    private int idEmployee;
+
     public UserApp(){
         this.id=-1;
     }
 
-    public UserApp(int id, String username, String password){
+    public UserApp(int id, String username, String password, int idEmployee){
         this.id=id;
         this.username=username;
         this.password=password;
+        this.idEmployee = idEmployee;
     }
 
     public int getId(){
@@ -46,4 +49,11 @@ public class UserApp {
         return "{id="+id+", username="+username+", password="+password+"}";
     }
 
+    public int getIdEmployee() {
+        return idEmployee;
+    }
+
+    public void setIdEmployee(int idEmployee) {
+        this.idEmployee = idEmployee;
+    }
 }

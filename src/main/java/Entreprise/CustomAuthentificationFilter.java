@@ -16,6 +16,7 @@ import java.util.ArrayList;
 class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
     private final ObjectMapper objectMapper;
+
     public CustomAuthenticationFilter(AuthenticationManager authenticationManager,
                                       ObjectMapper objectMapper) {
         this.authenticationManager = authenticationManager;

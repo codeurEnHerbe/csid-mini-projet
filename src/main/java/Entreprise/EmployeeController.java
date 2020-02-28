@@ -3,6 +3,9 @@ package Entreprise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -37,11 +40,17 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public ResponseEntity getEmployee(@PathVariable() int id){
-        return getEmployeeList().stream()
-                .filter(employee -> employee.getId() == id)
-                .findFirst()
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserApp user = (UserApp)authentication.getPrincipal();
+        if(id == user.getId()) {
+            return getEmployeeList().stream()
+                    .filter(employee -> employee.getId() == id)
+                    .findFirst()
+                    .map(ResponseEntity::ok)
+                    .orElse(ResponseEntity.notFound().build());
+        }else{
+            return ResponseEntity.status(401).build();
+        }
     }
 
     @DeleteMapping("/{id}")

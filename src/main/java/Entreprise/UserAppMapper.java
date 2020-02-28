@@ -7,15 +7,15 @@ public class UserAppMapper {
     }
 
     public static  UserApp DTOToUserApp(UserAppDTO e){
-        return new UserApp(e.getId(),e.getUsername(),e.getPassword());
+        return new UserApp(e.getId(),e.getUsername(),e.getPassword(), e.getIdEmployee());
     }
 
     public static UserAppEntity UserAppToEntity(UserApp e){
-       return new UserAppEntity(e.getId(), e.getUsername(),e.getPassword());
+       return new UserAppEntity(e.getId(), e.getUsername(),e.getPassword(), e.getIdEmployee());
     }
 
     public static  UserApp EntityToUserApp( UserAppEntity e){
-        return new UserApp(e.getId(),e.getUsername(),e.getPassword());
+        return new UserApp(e.getId(),e.getUsername(),e.getPassword(), e.getIdEmployee());
     }
 
 }

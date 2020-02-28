@@ -13,11 +13,13 @@ public class UserAppEntity {
     private String username;
     private String password;
 
+    private int idEmployee;
+
     public UserAppEntity(){
         this.id=-1;
     }
 
-    public UserAppEntity(int id, String username, String password){
+    public UserAppEntity(int id, String username, String password, int idEmployee){
         this.id=id;
         this.username=username;
         this.password=password;
@@ -41,5 +43,13 @@ public class UserAppEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getIdEmployee() {
+        return idEmployee;
+    }
+
+    public void setIdEmployee(int idEmployee) {
+        this.idEmployee = idEmployee;
     }
 }
